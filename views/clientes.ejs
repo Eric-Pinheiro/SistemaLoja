@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table border="1">
+<%- include('partials/header.ejs')%>
+<h2>Pagina de Clientes</h2>
+    <table class="table table-sm table-hover table-bordered">
+<thead>
 <tr>
-    <th>Nome</th><th>CPF</th><th>Endereço</th>
-</tr>
+        <th>Nome</th><th>CPF</th><th>Endereço</th>
+    </tr>
+</thead>
+    
 <% ListaClientes.forEach((ListaClientes)=>{%>
 <tr>
     <th><%= ListaClientes.nome %></th>

@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs')%>
+    <h2>Pagina de Veiculos</h2>
+    <table class="table table-sm table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Nome do Veiculo</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <%listaProdutos.forEach((listaProdutos)=>{%>
+    <tr>
+<th><%= listaProdutos.nomeProd %></th>
+<th><%= listaProdutos.preco %></th>
+<th><%= listaProdutos.categoria %></th>
+        
+        
+    </tr>
+        <%})%>
+    
+    </table>
+</body>
+</html>

@@ -40,11 +40,41 @@ const listaProdutos = [{
 }
 ];
 
-  res.render("produtos");
+  res.render("produtos", {listaProdutos: listaProdutos});
 });
 
 app.get("/pedidos", (req, res) => {
-  res.render("Pedidos");
+  listaCompras = [{
+    nome: "Bugatti Veyron", preco: 16000000.00, categoria:"Supercarro"
+  },
+  {
+    nome: "Renault Sander", preco: 80000.00, categoria:"Compactos"
+  },
+  {
+    nome: "Mitsubishi Lancer Evo", preco: 200000.00, categoria:"Esportivo"
+  },
+  {
+    nome: "Mazda Rx7", preco: 100000.00, categoria:"Esportivo"
+  }
+]
+
+listaVendas = [{
+  nome: "Ferrari La Ferrari", preco: 16000000.00, categoria:"Supercarro"
+},
+{
+  nome: "Audi RSQ8", preco: 1200000.00, categoria:"SUV"
+},
+{
+  nome: "Fiat palio", preco: 29000.00, categoria:"Compactos"
+},
+{
+  nome: "BWM Isetta", preco: 60000.00, categoria:"Compactos"
+}
+]
+
+
+
+  res.render("Pedidos", {listaCompras: listaCompras, listaVendas: listaVendas});
 });
 
 //config da porta do sistema de loja

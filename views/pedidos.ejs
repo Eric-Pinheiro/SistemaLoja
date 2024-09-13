@@ -1,0 +1,50 @@
+<%- include('partials/header.ejs')%>
+<h2>Pagina de Pedidos</h2>
+<br>
+<h3>Lista de compras</h3>
+<table class="table table-sm table-hover table-bordered">
+    <thead>
+    <tr>
+        <th class="col-md-2">Nome do Veiculo</th>
+        <th class="col-md-2">Preço</th>
+        <th class="col-md-2">Categoria</th>
+    </tr>
+</thead>
+    <%listaCompras.forEach((listaCompras)=>{%>
+        <tr>
+            <th>
+                <%= listaCompras.nome %>
+            </th>
+            <th>
+                <%= listaCompras.preco %>
+            </th>
+            <th>
+                <%= listaCompras.categoria %>
+            </th>
+        </tr>
+            <%})%>
+    </table>
+    <br>
+    <h3>Pedidos de Venda</h3>
+    <table class="table table-sm table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Nome do Veiculo</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+        <%listaVendas.forEach((listaVendas)=>{%>
+            <tr>
+                <th>
+                    <%= listaVendas.nome %>
+                </th>
+                <th>
+                    <%= listaVendas.preco %>
+                </th>
+                <th>
+                    <%= listaVendas.categoria %>
+                </th>
+            </tr>
+                <%})%>
+        </table>
