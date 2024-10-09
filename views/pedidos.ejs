@@ -1,50 +1,48 @@
-<%- include('partials/header.ejs')%>
-<h2>Pagina de Pedidos</h2>
-<br>
-<h3>Lista de compras</h3>
-<table class="table table-sm table-hover table-bordered">
-    <thead>
-    <tr>
-        <th class="col-md-2">Nome do Veiculo</th>
-        <th class="col-md-2">Preço</th>
-        <th class="col-md-2">Categoria</th>
-    </tr>
-</thead>
-    <%listaCompras.forEach((listaCompras)=>{%>
-        <tr>
-            <th>
-                <%= listaCompras.nome %>
-            </th>
-            <th>
-                <%= listaCompras.preco %>
-            </th>
-            <th>
-                <%= listaCompras.categoria %>
-            </th>
-        </tr>
-            <%})%>
-    </table>
-    <br>
-    <h3>Pedidos de Venda</h3>
-    <table class="table table-sm table-hover table-bordered">
-        <thead>
-        <tr>
-            <th>Nome do Veiculo</th>
-            <th>Preço</th>
-            <th>Categoria</th>
-        </tr>
-    </thead>
-        <%listaVendas.forEach((listaVendas)=>{%>
-            <tr>
-                <th>
-                    <%= listaVendas.nome %>
-                </th>
-                <th>
-                    <%= listaVendas.preco %>
-                </th>
-                <th>
-                    <%= listaVendas.categoria %>
-                </th>
-            </tr>
-                <%})%>
-        </table>
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+<div class="container">
+    <div class="card">
+        <div class="card-header"><h1>Cadastrar</h1></div>
+        <div class="card-body">
+            <form action="/pedidos/new" method="post">
+        <label for="">numero:</label>
+        <input type="number" name="numero" id="numero" class="form-control" required>
+        <label for="">Valor:</label>
+        <input type="text" name="valor" id="valor" class="form-control" required> <br><br>
+        <input type="submit" value="Cadastrar">
+    </form>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Pedidos</h1>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Número:</th>
+                            <th>Valor:</th>
+                            <th colspan="2"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% pedidos.forEach(pedido => { %>
+                        <tr>
+                            <td><img src="imgs/order.png" width="30px"></td>
+                            <td><%= pedido.numero %></td>
+                            <td>R$<%= pedido.valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) %></td>
+                            <td><a style="color: orange;" href="/pedidos/edit/<%= pedido.id%>">Editar</a></td>
+                            <td><a style="color: red" href="/pedidos/delete/<%= pedido.id %>" onclick="return confirm('deseja realmente deletar o pedido <%=pedido.nome %>')">Deletar</a></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include ('partials/footer.ejs') %>
